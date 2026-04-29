@@ -48,45 +48,8 @@ class OrderBook {
     void removeTopBuyOrder();
     void removeTopSellOrder();
 
+    void displayOrderBook() const;
+
 };
 
 
-void OrderBook::addOrder(const Order& order) {
-    if(order.type == BUY) {
-        buyOrders.push(order);
-    } else {
-        sellOrders.push(order);
-    }
-}
-
-bool OrderBook::hasBuyOrders() const {
-    return !buyOrders.empty();
-}
-
-
-bool OrderBook::hasSellOrders() const {
-    return !sellOrders.empty();
-}
-
-
-Order OrderBook::getTopBuyOrder() const {
-    try
-    {
-        if(!buyOrders.empty()) {
-            return buyOrders.top();
-        }
-    }
-    catch(const std::exception& e)
-    {
-       
-    }
-    
-   
-    
-}
-
-Order OrderBook::getTopSellOrder() const {
-    if(!sellOrders.empty()) {
-        return sellOrders.top();
-    }
-}
